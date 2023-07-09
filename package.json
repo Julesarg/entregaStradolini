@@ -1,0 +1,24 @@
+{
+  "name": "entregastradolini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julesarg/entregaStradolini.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Julesarg/entregaStradolini/issues"
+  },
+  "homepage": "https://github.com/Julesarg/entregaStradolini#readme"
+}
