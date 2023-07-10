@@ -31,6 +31,24 @@
 {% for item in student %}
 <p>Name: {{item.name}}</p>
 <p>Lastname: {{item.last_name}}</p>
+<p>Username: {{item.username}}</p>
+<p>Email: {{item.email}}</p>
+<p>Age: {{item.age}}</p>
+<p>Profile Pic: <img src='{{item.avatar.url}}' alt="image"></p>
+{% endfor %}
+{% endif %}
+
+<!--resultado de busqueda correcta en profesor-->
+{% if teacher %}
+<h3>Estudiante existente:</h3>
+{% for item in teacher %}
+<p>Name: {{item.name}}</p>
+<p>Lastname: {{item.last_name}}</p>
+<p>Username: {{item.username}}</p>
+<p>Email: {{item.email}}</p>
+<p>Age: {{item.age}}</p>
+<p>Programming Language: {{item.programming_language}}</p>
+<p>Profile Pic: <img src='{{item.avatar.url}}' alt="image"></p>
 {% endfor %}
 {% endif %}
 

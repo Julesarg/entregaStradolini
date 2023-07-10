@@ -2,21 +2,20 @@
 {% load static %}
 {% block changeContent %}
 
+<!--carga de form-->
 {% if myForm.errors %}
 <p>ERROR</p>
 {% endif %}
-<form action="/mainApp/teacherForm/" method="POST">{% csrf_token %}
+<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
   <table>
     {{myForm.as_table}}
   </table>
-  <!-- <p> Curso: <input type="text" placeholder="max. digits" name="name"></p>
-  <p> Camada: <input type="number" placeholder="max. 10" name="course_number"></p> -->
   <input type="submit" value="Send">
 </form>
 
-<form class="w-25 p-3 d-flex" role="search" action="/mainApp/searchCourse/" method="GET">
-  <input class="form-control me-2" type="number" placeholder="enter course number" aria-label="Search"
-    name='course_number' id='course_number'>
+<form class="w-25 p-3 d-flex" role="search" action="/mainApp/searchTeacher/" method="GET">
+  <input class="form-control me-2" type="text" placeholder="enter teacher username" aria-label="Search" name='username'
+    id='username'>
   <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
 

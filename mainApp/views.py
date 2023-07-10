@@ -13,15 +13,9 @@ def errorMessage(request):
 def notInDb(request):
     return render(request, 'mainApp/notInDb.html')
 
-# def students(request):
-#     return render(request, 'mainApp/students.html')
 
-# def courses(request):
-#     return render(request, 'mainApp/courses.html')
-
-# def teachers(request):
-#     return render(request, 'mainApp/teachers.html')
-
+#CARGAR FORMULARIOS#
+#cursos#
 def courses(request):
     if request.method == "POST":
         myForm = CourseForm(request.POST)
@@ -35,7 +29,7 @@ def courses(request):
     else:
         myForm = CourseForm()
     return render(request, 'mainApp/courses.html', {'myForm': myForm})
-
+#estudiantes#
 def students(request):
     if request.method == "POST":
         myForm = StudentForm(request.POST, request.FILES)
@@ -49,14 +43,14 @@ def students(request):
     else:
         myForm = StudentForm()
     return render(request, 'mainApp/students.html', {'myForm': myForm})
-
+#profesores#
 def teachers(request):
     if request.method == "POST":
-        myForm = TeacherForm(request.POST)
+        myForm = TeacherForm(request.POST, request.FILES)
         print(myForm)
         if myForm.is_valid():
             inf = myForm.cleaned_data
-            teacher = Teacher(name = inf['name'], last_name = inf['last_name'], username = inf['username'], email = inf['email'], age = inf['age'], progamming_language = inf['progamming_language'], avatar = inf['avatar'])
+            teacher = Teacher(name = inf['name'], last_name = inf['last_name'], username = inf['username'], email = inf['email'], age = inf['age'], programming_language = inf['progamming_language'], avatar = inf['avatar'])
             teacher.save()
             messages.success(request, 'Added Succesfully')
         return render(request, 'mainApp/index.html')
@@ -64,6 +58,8 @@ def teachers(request):
         myForm = TeacherForm()
     return render(request, 'mainApp/teachers.html', {'myForm': myForm})
 
+
+#CARGAR BUSQUEDAS#
 def searchCourse(request):
     if request.GET['course_number']:
         course_number = request.GET['course_number']
@@ -84,6 +80,19 @@ def searchStudent(request):
         if student:
             return render(request, 'mainApp/index.html', {'student': student, 'username': username})
         elif not student:
+            return render(request, 'mainApp/notInDb.html')
+        else:            
+            return render(request, 'mainApp/index.html')
+    else:
+        return redirect('../errorMessage')
+    
+def searchTeacher(request):
+    if request.GET['username']:
+        username = request.GET['username']
+        teacher = Teacher.objects.filter(username__icontains=username)
+        if teacher:
+            return render(request, 'mainApp/index.html', {'teacher': teacher, 'username': username})
+        elif not teacher:
             return render(request, 'mainApp/notInDb.html')
         else:            
             return render(request, 'mainApp/index.html')

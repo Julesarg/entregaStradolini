@@ -14,8 +14,8 @@ class Teacher(models.Model):
     username = models.CharField(max_length=15)
     email = models.EmailField()
     age = models.IntegerField()
-    progamming_language = models.CharField(max_length=40)
-    avatar = models.ImageField()
+    programming_language = models.CharField(max_length=40)
+    avatar = models.ImageField(null=True, blank=True, upload_to="images/")
 
 class Course(models.Model):
     name = models.CharField(max_length=25)
