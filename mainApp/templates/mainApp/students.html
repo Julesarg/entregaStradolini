@@ -2,9 +2,21 @@
 {% load static %}
 {% block changeContent %}
 
-<h1>
-  PRUEBA PAGINA ESTUDIANTES
-</h1>
+<!--carga de form-->
+{% if myForm.errors %}
+<p>ERROR</p>
+{% endif %}
+<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <table>
+    {{myForm.as_table}}
+  </table>
+  <input type="submit" value="Send">
+</form>
 
+<form class="w-25 p-3 d-flex" role="search" action="/mainApp/searchStudent/" method="GET">
+  <input class="form-control me-2" type="text" placeholder="enter student username" aria-label="Search" name='username'
+    id='username'>
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 
 {% endblock %}

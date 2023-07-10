@@ -7,4 +7,31 @@
 </h1>
 
 
+<!--mensaje de formulario enviado correctamente-->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<!--resultado de busqueda correcta en curso-->
+{% if course %}
+<h3>Camada existente:</h3>
+{% for item in course %}
+<p>Nombre del Curso: {{item.name}}</p>
+<p>Numero del Curso: {{item.course_number}}</p>
+{% endfor %}
+{% endif %}
+
+<!--resultado de busqueda correcta en estudiante-->
+{% if student %}
+<h3>Estudiante existente:</h3>
+{% for item in student %}
+<p>Name: {{item.name}}</p>
+<p>Lastname: {{item.last_name}}</p>
+{% endfor %}
+{% endif %}
+
 {% endblock %}

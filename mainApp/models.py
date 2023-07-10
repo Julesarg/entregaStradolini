@@ -6,7 +6,7 @@ class Student(models.Model):
     username = models.CharField(max_length=15)
     email = models.EmailField()
     age = models.IntegerField()
-    avatar = models.ImageField()
+    avatar = models.ImageField(null=True, blank=True, upload_to="images/")
 
 class Teacher(models.Model):
     name = models.CharField(max_length=25)
@@ -16,16 +16,7 @@ class Teacher(models.Model):
     age = models.IntegerField()
     progamming_language = models.CharField(max_length=40)
     avatar = models.ImageField()
-    class Gender(models.TextChoices):
-        male = '1', 'male'
-        female = '2', 'female'
-        other = '3', 'other'
-    gender = models.CharField(
-        max_length=2,
-        choices = Gender.choices,
-        default = Gender.male
-    )
 
-class Courses(models.Model):
+class Course(models.Model):
     name = models.CharField(max_length=25)
     course_number = models.IntegerField()
