@@ -24,7 +24,7 @@ def courses(request):
             inf = myForm.cleaned_data
             course = Course(name = inf['name'], course_number = inf['course_number'])
             course.save()
-            messages.success(request, 'Added Succesfully')
+            messages.success(request, f'Course: {course.name.capitalize()} - Course Number: {course.course_number}')
         return render(request, 'mainApp/index.html')
     else:
         myForm = CourseForm()
@@ -38,7 +38,7 @@ def students(request):
             inf = myForm.cleaned_data
             student = Student(name = inf['name'], last_name = inf['last_name'], username = inf['username'], email = inf['email'], age = inf['age'], avatar = inf['avatar'])
             student.save()
-            messages.success(request, 'Added Succesfully')
+            messages.success(request,f'Student "{student.name.capitalize()} {student.last_name.capitalize()}"')
         return render(request, 'mainApp/index.html')
     else:
         myForm = StudentForm()
@@ -60,7 +60,7 @@ def teachers(request):
 
 
 #CARGAR BUSQUEDAS#
-def searchCourse(request):
+def searchCourse(request):    
     if request.GET['course_number']:
         course_number = request.GET['course_number']
         course = Course.objects.filter(course_number__icontains=course_number)
@@ -68,7 +68,7 @@ def searchCourse(request):
             return render(request, 'mainApp/index.html', {'course': course, 'course_number': course_number})
         elif not course:
             return render(request, 'mainApp/notInDb.html')
-        else:            
+        else:
             return render(request, 'mainApp/index.html')
     else:
         return redirect('../errorMessage')

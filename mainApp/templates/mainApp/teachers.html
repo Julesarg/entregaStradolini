@@ -2,21 +2,29 @@
 {% load static %}
 {% block changeContent %}
 
-<!--carga de form-->
-{% if myForm.errors %}
-<p>ERROR</p>
-{% endif %}
-<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-  <table>
-    {{myForm.as_table}}
-  </table>
-  <input type="submit" value="Send">
-</form>
+<div class="center">
+  <div class="center-container">
 
-<form class="w-25 p-3 d-flex" role="search" action="/mainApp/searchTeacher/" method="GET">
-  <input class="form-control me-2" type="text" placeholder="enter teacher username" aria-label="Search" name='username'
-    id='username'>
-  <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
+
+    <!--carga de form-->
+    {% if myForm.errors %}
+    <p>ERROR</p>
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+      <table>
+        {{myForm.as_table}}
+      </table>
+      <input type="submit" class="btn btn-success" value="Send">
+    </form>
+
+
+    <!--busqueda de profesores-->
+    <form class="w-25 p-3 d-flex" role="search" action="/mainApp/searchTeacher/" method="GET">
+      <input class="form-control me-2" type="text" placeholder="search by username" aria-label="Search" name='username'
+        id='username'>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

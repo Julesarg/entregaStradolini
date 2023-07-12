@@ -1,55 +1,92 @@
 {% extends "mainApp/base.html" %}
 {% load static %}
 {% block changeContent %}
+<div class="center">
+  <div class="center-container">
+    <div class="center-container_img">
+      <img src="{{STATIC_URL}}../../static/mainApp/imgs/pythonlogo.svg" alt="image">
+    </div>
+    <div class="center-container_text">
+      <h1 class="center-container_text_h">
+        Bienvenidos al sitio
+      </h1>
+    </div>
+    <div class="center-container_text2">
+      <h4 class="center-container_text2_h">Para ingresar al administrador, por favor utilizar
+        <div class="center-container_text2_hdiv">
+          <p class="center-container_text2_hdiv_text">Username: admin</p>
+          <p class="center-container_text2_hdiv_text">Password: 123</p>
+        </div>
+      </h4>
+    </div>
+    <!--resultados-->
+    <div class="results-container">
+      <!--mensaje de formulario enviado correctamente para todos los tipos-->
+      {% if messages %}
+      <h5 class="upper-text">Successfully Added</h5>
+      <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
+          {{ message }}
+        </li>
+        {% endfor %}
+      </ul>
+      <h5 class="lower-text">to the Database</h5>
+      {% endif %}
 
-<h1>
-  PRUEBA PAGINA INICIO
-</h1>
 
+      <!--resultado de busqueda correcta en curso-->
+      {% for item in course %}
+      <h4 class="upper-text">Curso encontrado</h4>
+      <div class="messages">
+        <h5>Nombre de Curso: {{item.name}}</h5>
+        <h5>Numero de Curso: {{item.course_number}}</h5>
+      </div>
+      {% endfor %}
 
-<!--mensaje de formulario enviado correctamente-->
-{% if messages %}
-<ul class="messages">
-  {% for message in messages %}
-  <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-  {% endfor %}
-</ul>
-{% endif %}
+      <!--resultado de busqueda correcta en estudiante-->
+      {% if student %}
+      <h4 class="upper-text">Estudiante existente</h4>
+      {% for item in student %}
+      <div class="student-container">
+        <div class="student-container_left">
+          <div class="student-container_left_imgc">
+            <img class="img-plain" src='{{item.avatar.url}}' alt="image">
+          </div>
+        </div>
+        <div class="student-container_right">
+          <p>Name: {{item.name}}</p>
+          <p>Lastname: {{item.last_name}}</p>
+          <p>Username: {{item.username}}</p>
+          <p>Email: {{item.email}}</p>
+          <p>Age: {{item.age}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
 
-<!--resultado de busqueda correcta en curso-->
-{% if course %}
-<h3>Camada existente:</h3>
-{% for item in course %}
-<p>Nombre del Curso: {{item.name}}</p>
-<p>Numero del Curso: {{item.course_number}}</p>
-{% endfor %}
-{% endif %}
+      <!--resultado de busqueda correcta en profesor-->
+      {% if teacher %}
+      <h4 class="upper-text">Profesor existente</h4>
+      {% for item in teacher %}
+      <div class="student-container">
+        <div class="student-container_left">
+          <div class="student-container_left_imgc">
+            <img class="img-plain" src='{{item.avatar.url}}' alt="image">
+          </div>
+        </div>
+        <div class="student-container_right">
+          <p>Name: {{item.name}}</p>
+          <p>Lastname: {{item.last_name}}</p>
+          <p>Username: {{item.username}}</p>
+          <p>Email: {{item.email}}</p>
+          <p>Age: {{item.age}}</p>
+          <p>Programming Language: {{item.programming_language}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
 
-<!--resultado de busqueda correcta en estudiante-->
-{% if student %}
-<h3>Estudiante existente:</h3>
-{% for item in student %}
-<p>Name: {{item.name}}</p>
-<p>Lastname: {{item.last_name}}</p>
-<p>Username: {{item.username}}</p>
-<p>Email: {{item.email}}</p>
-<p>Age: {{item.age}}</p>
-<p>Profile Pic: <img src='{{item.avatar.url}}' alt="image"></p>
-{% endfor %}
-{% endif %}
-
-<!--resultado de busqueda correcta en profesor-->
-{% if teacher %}
-<h3>Estudiante existente:</h3>
-{% for item in teacher %}
-<p>Name: {{item.name}}</p>
-<p>Lastname: {{item.last_name}}</p>
-<p>Username: {{item.username}}</p>
-<p>Email: {{item.email}}</p>
-<p>Age: {{item.age}}</p>
-<p>Programming Language: {{item.programming_language}}</p>
-<p>Profile Pic: <img src='{{item.avatar.url}}' alt="image"></p>
-{% endfor %}
-{% endif %}
-
-{% endblock %}
+  {% endblock %}
