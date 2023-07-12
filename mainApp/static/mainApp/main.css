@@ -12138,6 +12138,9 @@ body { /* Chrome 10-25, Safari 5.1-6 */
 .center .center-container .center-container_text2 .center-container_text2_h .center-container_text2_hdiv .center-container_text2_hdiv_text {
   margin-bottom: 0;
 }
+.center .center-container .form-container {
+  margin-top: 100px;
+}
 .center .results-container {
   display: flex;
   flex-direction: column;
