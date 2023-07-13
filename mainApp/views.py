@@ -52,7 +52,7 @@ def teachers(request):
             inf = myForm.cleaned_data
             teacher = Teacher(name = inf['name'], last_name = inf['last_name'], username = inf['username'], email = inf['email'], age = inf['age'], programming_language = inf['progamming_language'], avatar = inf['avatar'])
             teacher.save()
-            messages.success(request, 'Added Succesfully')
+            messages.success(request, f'Teacher "{teacher.name.capitalize()} {teacher.last_name.capitalize()}" for {teacher.programming_language}')
         return render(request, 'mainApp/index.html')
     else:
         myForm = TeacherForm()
@@ -71,7 +71,7 @@ def searchCourse(request):
         else:
             return render(request, 'mainApp/index.html')
     else:
-        return redirect('../errorMessage')
+        return render(request,'mainApp/errorMessage.html')
     
 def searchStudent(request):
     if request.GET['username']:

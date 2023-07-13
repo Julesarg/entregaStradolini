@@ -15,7 +15,7 @@
   <title>Tercera entrega Python</title>
 </head>
 
-<body>
+<body onload="executeLoader()">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
 
     <div class="container-fluid">
@@ -36,7 +36,6 @@
             <a class="nav-link" href="{% url 'courses' %}">Courses</a>
           </li>
 
-          <!-- <a class="navbar-brand" href="{% url 'index' %}">3er Entrega Python</a> -->
           <a class="navbar-brand" href="#">3er Entrega Python</a>
 
           <li class="nav-item">
@@ -46,16 +45,6 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'teachers' %}">Teachers</a>
           </li>
-
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Users
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'teachers' %}">Teachers</a></li>
-              <li><a class="dropdown-item" href="{% url 'students' %}">Students</a></li>
-            </ul>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -65,6 +54,18 @@
   {% block changeContent %}
 
   {% endblock %}
+
+  <!--loader function-->
+  <script>
+    let variable;
+    function executeLoader() {
+      variable = setTimeout(showPage, 2000);
+    }
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("myDiv").style.display = "block";
+    }
+  </script>
 </body>
 
 </html>

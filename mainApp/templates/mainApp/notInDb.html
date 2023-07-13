@@ -2,8 +2,24 @@
 {% load static %}
 {% block changeContent %}
 
-<div>
-  <h2>NO EXISTE EN LA BASE DE DATOS</h2>
+<div class="center">
+  <div class="center-container">
+    <div class="no-value-container">
+      <div class="dot-spinner" id="loader">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+      </div>
+      <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h2>Ups!</h2>
+        <p>No existe en nuestra base de datos, ingresa otro valor!</p>
+      </div>
+    </div>
+  </div>
 </div>
-
 {% endblock %}

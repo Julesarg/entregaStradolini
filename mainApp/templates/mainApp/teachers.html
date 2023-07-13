@@ -10,7 +10,7 @@
       {% if myForm.errors %}
       <p>ERROR</p>
       {% endif %}
-      <form action="" method="POST">{% csrf_token %}
+      <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
         <table>
           {{myForm.as_table}}
         </table>
