@@ -12,14 +12,13 @@
       </h1>
     </div>
     <div class="center-container_text2">
-      <h4 class="center-container_text2_h">Para ingresar al administrador, por favor utilizar
+      <h4 class="center-container_text2_h">Para ingresar al administrador utilice las siguientes credenciales de acceso
         <div class="center-container_text2_hdiv">
           <p class="center-container_text2_hdiv_text">Username: admin</p>
-          <p class="center-container_text2_hdiv_text">Password: 123</p>
+          <p class="center-container_text2_hdiv_text">Password: coder123</p>
         </div>
       </h4>
     </div>
-
     <!--resultados-->
     <div class="results-container">
       <!--mensaje de formulario enviado correctamente para todos los tipos-->
@@ -63,7 +62,7 @@
       </div>
       {% for item in course %}
       <div class="results-container_added animate-bottom" id="myDiv">
-        <h4 class="upper-text">There is a course with your search input</h4>
+        <h4 class="upper-text">Search Course result</h4>
         <div class="messages">
           <h5>Nombre de Curso: {{item.name}}</h5>
           <h5>Numero de Curso: {{item.course_number}}</h5>
@@ -86,7 +85,7 @@
       </div>
       {% for item in student %}
       <div class="student-container animate-bottom" id="myDiv">
-        <h4 class="upper-text">Estudiante existente</h4>
+        <h4 class="upper-text">Search Student result</h4>
         <div class="student-container-flexbox">
           <div class="student-container_left">
             <div class="student-container_left_imgc">
@@ -119,7 +118,7 @@
       </div>
       {% for item in teacher %}
       <div class="student-container animate-bottom" id="myDiv">
-        <h4 class="upper-text">Profesor existente</h4>
+        <h4 class="upper-text">Search Teacher result</h4>
         <div class="student-container-flexbox">
           <div class="student-container_left">
             <div class="student-container_left_imgc">
@@ -139,8 +138,6 @@
       {% endfor %}
       {% endif %}
     </div>
-
-
   </div>
 </div>
 

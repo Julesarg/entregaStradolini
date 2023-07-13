@@ -6,13 +6,10 @@ from django.contrib import messages
 
 def index(request):
     return render(request, 'mainApp/index.html')
-
 def errorMessage(request):
     return render(request, 'mainApp/errorMessage.html')
-
 def notInDb(request):
     return render(request, 'mainApp/notInDb.html')
-
 
 #CARGAR FORMULARIOS#
 #cursos#
@@ -58,8 +55,8 @@ def teachers(request):
         myForm = TeacherForm()
     return render(request, 'mainApp/teachers.html', {'myForm': myForm})
 
-
 #CARGAR BUSQUEDAS#
+#de cursos#
 def searchCourse(request):    
     if request.GET['course_number']:
         course_number = request.GET['course_number']
@@ -72,7 +69,7 @@ def searchCourse(request):
             return render(request, 'mainApp/index.html')
     else:
         return render(request,'mainApp/errorMessage.html')
-    
+#de estudiantes#
 def searchStudent(request):
     if request.GET['username']:
         username = request.GET['username']
@@ -85,7 +82,7 @@ def searchStudent(request):
             return render(request, 'mainApp/index.html')
     else:
         return redirect('../errorMessage')
-    
+#de profesores#    
 def searchTeacher(request):
     if request.GET['username']:
         username = request.GET['username']

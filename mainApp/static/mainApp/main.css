@@ -12140,6 +12140,19 @@ body { /* Chrome 10-25, Safari 5.1-6 */
 }
 .center .center-container .form-container {
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.center .center-container .form-container .form-container_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.center .center-container .form-container .form-container_inner .btn {
+  width: 50%;
+  margin-bottom: 30px;
 }
 .center .center-container .no-value-container {
   margin-top: 50px;
@@ -12317,7 +12330,6 @@ body { /* Chrome 10-25, Safari 5.1-6 */
     opacity: 1;
   }
 }
-/* Add animation to "page content" */
 .animate-bottom {
   position: relative;
   -webkit-animation-name: animatebottom;
