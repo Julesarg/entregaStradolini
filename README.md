@@ -4,6 +4,11 @@
 
 </div>
 
+<div align="center">
+
+![ezgif com-video-to-gif](https://github.com/Julesarg/entregaStradolini/assets/93753805/9f04a9d2-9b07-4b5a-b69f-57d8ace35e66)
+</div>
+
 ## Indice
 
 - [External Resources Dependencies & Editors](#linkexternal-resources-dependencies-and-editors)
